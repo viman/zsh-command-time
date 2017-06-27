@@ -1,3 +1,5 @@
+ZSH_COMMAND_TIME_LABEL="time: "
+
 _command_time_preexec() {
   timer=${timer:-$SECONDS}
   export ZSH_COMMAND_TIME=""
@@ -18,7 +20,7 @@ _command_time_precmd() {
 
 zsh_command_time() {
   if [ -n "$ZSH_COMMAND_TIME" ]; then
-    echo "time: $ZSH_COMMAND_TIME"
+    echo "$ZSH_COMMAND_TIME_LABEL$ZSH_COMMAND_TIME"
   fi
 }
 
