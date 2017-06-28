@@ -1,4 +1,4 @@
-ZSH_COMMAND_TIME_LABEL="time: "
+[[ -n $ZSH_COMMAND_TIME_LABEL ]] || export ZSH_COMMAND_TIME_LABEL="Command duration: "
 
 _command_time_preexec() {
   timer=${timer:-$SECONDS}
@@ -20,7 +20,7 @@ _command_time_precmd() {
 
 zsh_command_time() {
   if [ -n "$ZSH_COMMAND_TIME" ]; then
-    echo "$ZSH_COMMAND_TIME_LABEL$ZSH_COMMAND_TIME"
+    echo "$fg[red]->${reset_color} $ZSH_COMMAND_TIME_LABEL${ZSH_COMMAND_TIME}s"
   fi
 }
 
